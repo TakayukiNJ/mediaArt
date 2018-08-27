@@ -28,7 +28,7 @@ public class MainController : MonoBehaviour {
     // }
 
 	void ChangeScene(){
-        SceneManager.LoadScene ("Capsule Hands");
+        SceneManager.LoadScene ("AutumnScene");
     }
 
 	void Update(){
