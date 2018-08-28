@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainController : MonoBehaviour {
@@ -10,6 +11,7 @@ public class MainController : MonoBehaviour {
 	public float speed = 2F;
 	public float gravity = 9.8f;
 	public float speedZ;
+	public bool detection_flag;
 
 	// ★追加（横移動のスピード）
 	public float speedX;
@@ -17,8 +19,17 @@ public class MainController : MonoBehaviour {
 	// ★追加（旋回のスピード）
 	public float turnSpeed;
 
+	//オブジェクトが衝突したとき
+	 void OnCollisionEnter (Collision col)
+    {
+        if(col.gameObject.name == "leaf")
+        {
+            Debug.Log("test");
+        }
+    }
+
 	void Start(){
-		Invoke("ChangeScene", 10F);
+		// Invoke("ChangeScene", 10F);
 		// Invoke("DestroyObject", 2F);
 		controller = GetComponent<CharacterController> ();
 	}
@@ -32,6 +43,13 @@ public class MainController : MonoBehaviour {
     }
 
 	void Update(){
+
+
+
+
+
+
+		
 		transform.position += transform.forward * Time.deltaTime * speed;
 		
 		if (controller.isGrounded) {
